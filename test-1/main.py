@@ -2,9 +2,10 @@ import cv2
 import numpy as np
 from PIL import Image
 import pytesseract
-from text_translator import translate_text
+from text_translator  import refine_translation, translate_text 
+import asyncio
 
-def main():
+async def main():
     # Uploading an image
     image_path = './images/image.png'
     image = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
@@ -26,10 +27,13 @@ def main():
     print("Recognised text:")
     print(text)
 
-    ranslated_text = translate_text(text, "ru")
-    print("Ranslated text:")
-    print(ranslated_text)
+    # Пример использования    
+    translated_text = translate_text(text)
+    refined_text = await refine_translation(translated_text)
+
+    print("Original:", text)
+    print("Translated:", translated_text)
 
 
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())
