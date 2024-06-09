@@ -7,8 +7,6 @@
     source myenv/bin/activate  # Unix или MacOS
 
     # Installing the necessary libraries
-    pip install opencv-python-headless translate      
-    pip install --upgrade openai
-
+    pip install opencv-python translate cv2 easyocr
 ```
 

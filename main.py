@@ -3,7 +3,7 @@ import cv2
 
 def detect_and_replace_text(image_path, new_text, output_path):
     # Загрузка изображения
-    image = cv2.imread(image_path)
+    image = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
     
     # Проверка, что изображение загружено корректно
     if image is None:
@@ -43,5 +43,3 @@ new_text = 'New Text'
 output_path = '../images/output_image.png'
 
 detect_and_replace_text('./images/image.png', new_text, './images/output_image.png')
-
-
